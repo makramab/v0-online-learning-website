@@ -17,14 +17,14 @@ export default function CourseDetailPage() {
         <main className="p-8">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-            <Link href="/dashboard" className="hover:text-foreground transition-colors">
+            <Link href="/courses" className="hover:text-foreground transition-colors">
               <ArrowLeft className="w-4 h-4 inline mr-1" />
-              Courses
+              Kursus
             </Link>
             <span>/</span>
-            <span>UI UX Design</span>
+            <span>Imigrasi & Visa</span>
             <span>/</span>
-            <span className="text-foreground">Figma from A to Z</span>
+            <span className="text-foreground">DV Lottery Masterclass</span>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -34,8 +34,8 @@ export default function CourseDetailPage() {
               <div className="space-y-4">
                 <div className="flex items-start justify-between">
                   <div className="space-y-2">
-                    <h1 className="text-4xl font-bold text-balance">Figma from A to Z</h1>
-                    <Badge variant="outline">UI / UX Design</Badge>
+                    <h1 className="text-4xl font-bold text-balance">DV Lottery Masterclass: Cara Menang & Persiapan Interview</h1>
+                    <Badge variant="outline">Imigrasi & Visa</Badge>
                   </div>
                   <Button variant="ghost" size="icon">
                     <Share2 className="w-5 h-5" />
@@ -45,21 +45,21 @@ export default function CourseDetailPage() {
                 <div className="flex items-center gap-6 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <BookOpen className="w-4 h-4" />
-                    <span>38 lessons</span>
+                    <span>24 pelajaran</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4" />
-                    <span>4h 30min</span>
+                    <span>6 jam</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Star className="w-4 h-4 fill-primary text-primary" />
-                    <span>4.5 (126 reviews)</span>
+                    <span>4.9 (342 ulasan)</span>
                   </div>
                 </div>
               </div>
 
               {/* Video Player */}
-              <CourseVideoPlayer />
+              <CourseVideoPlayer youtubeVideoId="FJxAyg_sk7Q" />
 
               {/* Tabs */}
               <CourseTabs />

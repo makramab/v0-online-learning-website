@@ -6,23 +6,23 @@ import { cn } from "@/lib/utils"
 import { BookOpen, Home, Lightbulb, Settings, Users, HelpCircle, GraduationCap } from "lucide-react"
 
 const mainNavItems = [
-  { href: "/dashboard", icon: Home, label: "Overview" },
-  { href: "/dashboard/courses", icon: BookOpen, label: "Course" },
-  { href: "/dashboard/my-courses", icon: GraduationCap, label: "My Course" },
-  { href: "/dashboard/progress", icon: Lightbulb, label: "Learning Progress" },
-  { href: "/dashboard/community", icon: Users, label: "Community" },
+  { href: "/courses", icon: Home, label: "Overview" },
+  { href: "/courses", icon: BookOpen, label: "Course" },
+  { href: "/courses/my-courses", icon: GraduationCap, label: "My Course" },
+  { href: "/courses/progress", icon: Lightbulb, label: "Learning Progress" },
+  { href: "/courses/community", icon: Users, label: "Community" },
 ]
 
 const workspaceNavItems = [
-  { href: "/dashboard/workspace", icon: Home, label: "Overview", badge: "NEW" },
-  { href: "/dashboard/workspace/progress", icon: Lightbulb, label: "Learning Progress" },
-  { href: "/dashboard/workspace/my-course", icon: GraduationCap, label: "My Course" },
-  { href: "/dashboard/workspace/community", icon: Users, label: "Community", badge: "BETA" },
+  { href: "/courses/workspace", icon: Home, label: "Overview", badge: "NEW" },
+  { href: "/courses/workspace/progress", icon: Lightbulb, label: "Learning Progress" },
+  { href: "/courses/workspace/my-course", icon: GraduationCap, label: "My Course" },
+  { href: "/courses/workspace/community", icon: Users, label: "Community", badge: "BETA" },
 ]
 
 const bottomNavItems = [
-  { href: "/dashboard/settings", icon: Settings, label: "Settings" },
-  { href: "/dashboard/support", icon: HelpCircle, label: "Support" },
+  { href: "/courses/settings", icon: Settings, label: "Settings" },
+  { href: "/courses/support", icon: HelpCircle, label: "Support" },
 ]
 
 export function DashboardSidebar() {
@@ -32,8 +32,9 @@ export function DashboardSidebar() {
     <aside className="fixed left-0 top-0 h-screen w-64 bg-muted border-r border-border flex flex-col">
       <div className="p-6">
         <Link href="/" className="flex items-center gap-2">
-          <div className="text-xl font-bold text-foreground">
-            Tedchay <span className="text-primary">Academy</span>
+          <div className="text-xl font-bold">
+            <span className="text-foreground">goto</span>
+            <span className="text-primary">america</span>
           </div>
         </Link>
       </div>

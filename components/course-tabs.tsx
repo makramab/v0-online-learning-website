@@ -5,13 +5,14 @@ import { Check } from "lucide-react"
 
 export function CourseTabs() {
   const learningPoints = [
-    "Setting up the environment",
-    "Advanced HTML Practices",
-    "Build a portfolio website",
-    "Responsive Designs",
-    "Understand HTML Programming",
-    "Code HTML",
-    "Start building beautiful websites",
+    "Memahami syarat kelayakan DV Lottery secara detail",
+    "Mengisi formulir DS-260 dengan benar dan lengkap",
+    "Tips meningkatkan peluang menang DV Lottery",
+    "Persiapan dokumen untuk interview konsulat",
+    "Teknik menjawab pertanyaan interview dengan percaya diri",
+    "Memahami proses medical exam dan vaksinasi",
+    "Langkah-langkah setelah mendapat approval visa",
+    "Cara menghindari kesalahan umum yang sering terjadi",
   ]
 
   return (
@@ -21,13 +22,13 @@ export function CourseTabs() {
           value="overview"
           className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent"
         >
-          Overview
+          Ringkasan
         </TabsTrigger>
         <TabsTrigger
           value="author"
           className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent"
         >
-          Author
+          Instruktur
         </TabsTrigger>
         <TabsTrigger
           value="faq"
@@ -39,32 +40,29 @@ export function CourseTabs() {
           value="announcements"
           className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent"
         >
-          Announcements
+          Pengumuman
         </TabsTrigger>
         <TabsTrigger
           value="reviews"
           className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent"
         >
-          Reviews
+          Ulasan
         </TabsTrigger>
       </TabsList>
 
       <TabsContent value="overview" className="mt-6 space-y-6">
         <div className="space-y-4">
-          <h3 className="text-2xl font-bold">About Course</h3>
+          <h3 className="text-2xl font-bold">Tentang Kursus</h3>
           <p className="text-muted-foreground leading-relaxed">
-            Unlock the power of Figma, the leading collaborative design tool, with our comprehensive online course.
-            Whether you're a novice or looking to enhance your skills, this course will guide you through Figma's robust
-            features and workflows.
+            Kursus komprehensif tentang DV Lottery (Diversity Visa Lottery Program) yang akan memandu Anda dari proses pendaftaran hingga persiapan interview di konsulat Amerika. Dipandu langsung oleh Tedchay yang telah berhasil memenangkan DV Lottery dan kini tinggal di Amerika Serikat.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            Perfect for UI/UX designers, product managers, and anyone interested in modern design tools. Join us to
-            elevate your design skills and boost your productivity with Figma!
+            Cocok untuk siapa saja yang ingin mencoba peruntungan DV Lottery atau yang sudah menang dan membutuhkan panduan lengkap untuk proses selanjutnya. Pelajari dari pengalaman nyata, bukan hanya teori!
           </p>
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-2xl font-bold">What You'll Learn</h3>
+          <h3 className="text-2xl font-bold">Yang Akan Anda Pelajari</h3>
           <div className="grid md:grid-cols-2 gap-4">
             {learningPoints.map((point, index) => (
               <div key={index} className="flex items-start gap-3">
@@ -78,20 +76,28 @@ export function CourseTabs() {
         </div>
       </TabsContent>
 
-      <TabsContent value="author" className="mt-6">
-        <p className="text-muted-foreground">Author information will be displayed here.</p>
+      <TabsContent value="author" className="mt-6 space-y-4">
+        <h3 className="text-2xl font-bold">Tentang Instruktur</h3>
+        <div className="space-y-3">
+          <p className="text-muted-foreground leading-relaxed">
+            <span className="font-semibold text-foreground">Tedchay</span> adalah mantan kontestan Master Chef Indonesia yang berhasil memenangkan DV Lottery dan kini tinggal di Amerika Serikat. Dengan pengalaman langsung dalam proses imigrasi, Tedchay membagikan tips dan trik praktis yang tidak akan Anda temukan di panduan resmi.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            Sebagai content creator dan YouTuber dengan ribuan subscriber, Tedchay memiliki kemampuan menjelaskan konsep kompleks dengan cara yang mudah dipahami dan engaging. Bergabunglah dengan ribuan orang Indonesia lainnya yang telah belajar dari pengalaman Tedchay!
+          </p>
+        </div>
       </TabsContent>
 
       <TabsContent value="faq" className="mt-6">
-        <p className="text-muted-foreground">Frequently asked questions will be displayed here.</p>
+        <p className="text-muted-foreground">Pertanyaan yang sering diajukan akan ditampilkan di sini.</p>
       </TabsContent>
 
       <TabsContent value="announcements" className="mt-6">
-        <p className="text-muted-foreground">Course announcements will be displayed here.</p>
+        <p className="text-muted-foreground">Pengumuman kursus akan ditampilkan di sini.</p>
       </TabsContent>
 
       <TabsContent value="reviews" className="mt-6">
-        <p className="text-muted-foreground">Student reviews will be displayed here.</p>
+        <p className="text-muted-foreground">Ulasan dari siswa akan ditampilkan di sini.</p>
       </TabsContent>
     </Tabs>
   )

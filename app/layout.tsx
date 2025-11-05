@@ -7,9 +7,9 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Tedchay Academy - Boost Your Digital Education Online",
+  title: "gotoamerica - Your Pathway from Indonesia to the United States",
   description:
-    "Unleash your potential with Tedchay Academy — the online platform to master the latest tech skills and lead the digital revolution.",
+    "Platform pembelajaran untuk orang Indonesia yang ingin mewujudkan American Dream. Dipandu langsung oleh Tedchay, pemenang DV Lottery yang sukses di Amerika.",
   generator: "v0.app",
 }
 

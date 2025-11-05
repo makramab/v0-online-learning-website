@@ -28,6 +28,18 @@ export function CourseCard({
   tags = [],
   image,
 }: CourseCardProps) {
+  // Format Indonesian Rupiah
+  const formatIDR = (amount: number) => {
+    if (amount === 0) return "GRATIS"
+    if (amount >= 1000000) {
+      return `Rp ${(amount / 1000000).toFixed(1).replace(".0", "")}jt`
+    }
+    if (amount >= 1000) {
+      return `Rp ${(amount / 1000).toFixed(0)}rb`
+    }
+    return `Rp ${amount.toLocaleString("id-ID")}`
+  }
+
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer">
       <CardHeader className="p-0">
@@ -52,7 +64,7 @@ export function CourseCard({
       <CardContent className="p-5 space-y-3">
         <h3 className="font-bold text-lg line-clamp-2 leading-snug">{title}</h3>
         <p className="text-sm text-muted-foreground line-clamp-2">{description}</p>
-        <div className="text-sm text-muted-foreground">By {instructor}</div>
+        <div className="text-sm text-muted-foreground">Oleh {instructor}</div>
         <div className="flex items-center gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-1">
             <Clock className="w-4 h-4" />
@@ -71,8 +83,10 @@ export function CourseCard({
       </CardContent>
       <CardFooter className="px-5 pb-5 pt-0">
         <div className="flex items-center gap-2">
-          {originalPrice && <span className="text-sm text-muted-foreground line-through">${originalPrice}</span>}
-          <span className="text-2xl font-bold text-primary">${price}</span>
+          {originalPrice && originalPrice > 0 && (
+            <span className="text-sm text-muted-foreground line-through">{formatIDR(originalPrice)}</span>
+          )}
+          <span className="text-2xl font-bold text-primary">{formatIDR(price)}</span>
         </div>
       </CardFooter>
     </Card>

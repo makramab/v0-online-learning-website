@@ -16,49 +16,61 @@ interface CourseSection {
 const courseSections: CourseSection[] = [
   {
     id: "01",
-    title: "Intro",
-    duration: "22min",
+    title: "Pengenalan DV Lottery",
+    duration: "35 menit",
     lessons: [
-      { title: "Introduction", duration: "2 min", completed: true },
-      { title: "What is Figma?", duration: "5 min" },
-      { title: "Understanding Figma", duration: "12 min" },
-      { title: "UI tour", duration: "3 min" },
+      { title: "Selamat Datang di Kursus", duration: "3 menit", completed: true },
+      { title: "Apa itu DV Lottery?", duration: "8 menit" },
+      { title: "Syarat & Kelayakan", duration: "12 menit" },
+      { title: "Timeline & Jadwal Penting", duration: "7 menit" },
+      { title: "Peluang & Statistik", duration: "5 menit" },
     ],
   },
   {
     id: "02",
-    title: "Intermediate Level Stuff",
-    duration: "1h 20min",
-    lessons: [],
+    title: "Proses Pendaftaran",
+    duration: "1 jam 15 menit",
+    lessons: [
+      { title: "Persiapan Dokumen", duration: "15 menit" },
+      { title: "Foto Requirements", duration: "10 menit" },
+      { title: "Mengisi Formulir Entry", duration: "25 menit" },
+      { title: "Tips Meningkatkan Peluang", duration: "15 menit" },
+      { title: "Common Mistakes to Avoid", duration: "10 menit" },
+    ],
   },
   {
     id: "03",
-    title: "Advanced Stuff",
-    duration: "36min",
-    lessons: [],
+    title: "Setelah Menang",
+    duration: "45 menit",
+    lessons: [
+      { title: "Notifikasi & Confirmation Number", duration: "8 menit" },
+      { title: "Form DS-260 Step by Step", duration: "20 menit" },
+      { title: "Supporting Documents", duration: "12 menit" },
+      { title: "Paying Fees", duration: "5 menit" },
+    ],
   },
   {
     id: "04",
-    title: "Imports & Graphics",
-    duration: "40min",
+    title: "Persiapan Interview",
+    duration: "1 jam 30 menit",
     lessons: [],
   },
   {
     id: "05",
-    title: "Component in Figma",
-    duration: "1h 12min",
+    title: "Medical Exam & Vaksinasi",
+    duration: "40 menit",
     lessons: [],
   },
   {
     id: "06",
-    title: "Styles in Figma",
-    duration: "41min",
+    title: "Setelah Approval",
+    duration: "50 menit",
     lessons: [],
   },
   {
     id: "07",
-    title: "Summary",
-    duration: "8min",
+    title: "Bonus: Tips dari Tedchay",
+    duration: "25 menit",
     lessons: [],
   },
 ]
@@ -70,7 +82,7 @@ export function CourseContentSidebar() {
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>Course content</CardTitle>
+          <CardTitle>Konten Kursus</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2">
           {courseSections.map((section) => {
@@ -119,34 +131,33 @@ export function CourseContentSidebar() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Author</CardTitle>
+          <CardTitle>Instruktur</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex items-start gap-4">
             <Avatar className="w-12 h-12">
-              <AvatarImage src="/placeholder.svg?height=48&width=48" alt="Crystal Lucas" />
-              <AvatarFallback>CL</AvatarFallback>
+              <AvatarImage src="/placeholder.svg?height=48&width=48" alt="Tedchay" />
+              <AvatarFallback>TC</AvatarFallback>
             </Avatar>
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <h4 className="font-semibold">Crystal Lucas</h4>
+                <h4 className="font-semibold">Tedchay</h4>
                 <div className="flex items-center gap-1 text-sm">
                   <Star className="w-4 h-4 fill-primary text-primary" />
-                  <span className="font-medium">(4.8)</span>
+                  <span className="font-medium">(4.9)</span>
                 </div>
               </div>
-              <p className="text-sm text-muted-foreground">UI/UX Specialist</p>
+              <p className="text-sm text-muted-foreground">DV Lottery Winner & Imigran di US</p>
             </div>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Crystal is a seasoned UI/UX designer with over a decade of experience creating intuitive and visually
-            engaging digital products.
+            Mantan kontestan Master Chef Indonesia yang berhasil pindah ke Amerika melalui DV Lottery. Kini berbagi pengalaman dan tips praktis untuk membantu orang Indonesia meraih American Dream.
           </p>
         </CardContent>
       </Card>
 
       <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold py-6">
-        Enroll Now
+        Daftar Sekarang - GRATIS
       </Button>
     </div>
   )
