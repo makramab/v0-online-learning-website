@@ -2,81 +2,39 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { ChevronDown, ChevronUp, Play, Star, CheckCircle2 } from "lucide-react"
 import { useState } from "react"
+import type { Course } from "@/lib/courses-data"
 
-interface CourseSection {
-  id: string
-  title: string
-  duration: string
-  lessons: { title: string; duration: string; completed?: boolean }[]
+interface CourseContentSidebarProps {
+  course: Course
 }
 
-const courseSections: CourseSection[] = [
-  {
-    id: "01",
-    title: "Pengenalan DV Lottery",
-    duration: "35 menit",
-    lessons: [
-      { title: "Selamat Datang di Kursus", duration: "3 menit", completed: true },
-      { title: "Apa itu DV Lottery?", duration: "8 menit" },
-      { title: "Syarat & Kelayakan", duration: "12 menit" },
-      { title: "Timeline & Jadwal Penting", duration: "7 menit" },
-      { title: "Peluang & Statistik", duration: "5 menit" },
-    ],
-  },
-  {
-    id: "02",
-    title: "Proses Pendaftaran",
-    duration: "1 jam 15 menit",
-    lessons: [
-      { title: "Persiapan Dokumen", duration: "15 menit" },
-      { title: "Foto Requirements", duration: "10 menit" },
-      { title: "Mengisi Formulir Entry", duration: "25 menit" },
-      { title: "Tips Meningkatkan Peluang", duration: "15 menit" },
-      { title: "Common Mistakes to Avoid", duration: "10 menit" },
-    ],
-  },
-  {
-    id: "03",
-    title: "Setelah Menang",
-    duration: "45 menit",
-    lessons: [
-      { title: "Notifikasi & Confirmation Number", duration: "8 menit" },
-      { title: "Form DS-260 Step by Step", duration: "20 menit" },
-      { title: "Supporting Documents", duration: "12 menit" },
-      { title: "Paying Fees", duration: "5 menit" },
-    ],
-  },
-  {
-    id: "04",
-    title: "Persiapan Interview",
-    duration: "1 jam 30 menit",
-    lessons: [],
-  },
-  {
-    id: "05",
-    title: "Medical Exam & Vaksinasi",
-    duration: "40 menit",
-    lessons: [],
-  },
-  {
-    id: "06",
-    title: "Setelah Approval",
-    duration: "50 menit",
-    lessons: [],
-  },
-  {
-    id: "07",
-    title: "Bonus: Tips dari Tedchay",
-    duration: "25 menit",
-    lessons: [],
-  },
-]
-
-export function CourseContentSidebar() {
+export function CourseContentSidebar({ course }: CourseContentSidebarProps) {
   const [expandedSection, setExpandedSection] = useState<string>("01")
+
+  // Format price for button
+  const formatPrice = (price: number) => {
+    if (price === 0) return "GRATIS"
+    if (price >= 1000000) {
+      return `Rp ${(price / 1000000).toFixed(1).replace(".0", "")}jt`
+    }
+    if (price >= 1000) {
+      return `Rp ${(price / 1000).toFixed(0)}rb`
+    }
+    return `Rp ${price.toLocaleString("id-ID")}`
+  }
+
+  // Get initials for avatar
+  const getInitials = (name: string) => {
+    return name
+      .split(" ")
+      .map((n) => n[0])
+      .join("")
+      .substring(0, 2)
+      .toUpperCase()
+  }
 
   return (
     <div className="space-y-6">
@@ -85,7 +43,7 @@ export function CourseContentSidebar() {
           <CardTitle>Konten Kursus</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2">
-          {courseSections.map((section) => {
+          {course.courseContent.map((section) => {
             const isExpanded = expandedSection === section.id
             return (
               <div key={section.id} className="border rounded-lg overflow-hidden">
@@ -131,33 +89,32 @@ export function CourseContentSidebar() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Instruktur</CardTitle>
+          <CardTitle>Narasumber</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex items-start gap-4">
             <Avatar className="w-12 h-12">
-              <AvatarImage src="/placeholder.svg?height=48&width=48" alt="Tedchay" />
-              <AvatarFallback>TC</AvatarFallback>
+              <AvatarFallback>{getInitials(course.instructor)}</AvatarFallback>
             </Avatar>
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <h4 className="font-semibold">Tedchay</h4>
+                <h4 className="font-semibold">{course.instructor}</h4>
                 <div className="flex items-center gap-1 text-sm">
                   <Star className="w-4 h-4 fill-primary text-primary" />
-                  <span className="font-medium">(4.9)</span>
+                  <span className="font-medium">({course.rating})</span>
                 </div>
               </div>
-              <p className="text-sm text-muted-foreground">DV Lottery Winner & Imigran di US</p>
+              <p className="text-sm text-muted-foreground">{course.instructorBio.title}</p>
             </div>
           </div>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Mantan kontestan Master Chef Indonesia yang berhasil pindah ke Amerika melalui DV Lottery. Kini berbagi pengalaman dan tips praktis untuk membantu orang Indonesia meraih American Dream.
+            {course.instructorBio.bio[0].substring(0, 150)}...
           </p>
         </CardContent>
       </Card>
 
-      <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold py-6">
-        Daftar Sekarang - GRATIS
+      <Button className="w-full bg-red-600 text-white hover:bg-red-700 font-semibold py-6">
+        {course.price === 0 ? "Daftar Sekarang - GRATIS" : `Daftar Sekarang - ${formatPrice(course.price)}`}
       </Button>
     </div>
   )

@@ -33,17 +33,19 @@ export function LandingHeader() {
           {/* Right Actions */}
           <div className="flex items-center gap-4">
             <Link
-              href="/courses"
+              href="/masuk"
               className="text-slate-600 hover:text-primary transition-colors text-base font-medium hidden sm:block"
             >
               Masuk
             </Link>
-            <Button
-              variant="default"
-              className="bg-red-600 text-white hover:bg-red-700 transition-all shadow-md hover:shadow-lg"
-            >
-              Daftar Gratis
-            </Button>
+            <Link href="/daftar">
+              <Button
+                variant="default"
+                className="bg-red-600 text-white hover:bg-red-700 transition-all shadow-md hover:shadow-lg"
+              >
+                Daftar Gratis
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

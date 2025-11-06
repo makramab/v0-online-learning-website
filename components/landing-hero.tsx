@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Play } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 export function LandingHero() {
   return (
@@ -45,13 +46,15 @@ export function LandingHero() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <Button
-                size="lg"
-                className="bg-red-600 text-white hover:bg-red-700 font-semibold text-base px-8 py-6 rounded-xl shadow-xl hover:shadow-2xl transition-all"
-              >
-                Mulai Belajar
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
+              <Link href="/daftar">
+                <Button
+                  size="lg"
+                  className="bg-red-600 text-white hover:bg-red-700 font-semibold text-base px-8 py-6 rounded-xl shadow-xl hover:shadow-2xl transition-all"
+                >
+                  Mulai Belajar
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </Link>
               <Button
                 size="lg"
                 variant="ghost"

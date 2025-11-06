@@ -7,8 +7,17 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, BookOpen, Clock, Star, Share2 } from "lucide-react"
 import Link from "next/link"
+import { getCourseById } from "@/lib/courses-data"
+import { notFound } from "next/navigation"
 
-export default function CourseDetailPage() {
+export default function CourseDetailPage({ params }: { params: { id: string } }) {
+  const courseId = parseInt(params.id)
+  const course = getCourseById(courseId)
+
+  if (!course) {
+    notFound()
+  }
+
   return (
     <div className="flex min-h-screen">
       <DashboardSidebar />
@@ -22,9 +31,9 @@ export default function CourseDetailPage() {
               Kursus
             </Link>
             <span>/</span>
-            <span>Imigrasi & Visa</span>
+            <span>{course.category}</span>
             <span>/</span>
-            <span className="text-foreground">DV Lottery Masterclass</span>
+            <span className="text-foreground">{course.title.split(':')[0]}</span>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -34,8 +43,8 @@ export default function CourseDetailPage() {
               <div className="space-y-4">
                 <div className="flex items-start justify-between">
                   <div className="space-y-2">
-                    <h1 className="text-4xl font-bold text-balance">DV Lottery Masterclass: Cara Menang & Persiapan Interview</h1>
-                    <Badge variant="outline">Imigrasi & Visa</Badge>
+                    <h1 className="text-4xl font-bold text-balance">{course.title}</h1>
+                    <Badge variant="outline">{course.category}</Badge>
                   </div>
                   <Button variant="ghost" size="icon">
                     <Share2 className="w-5 h-5" />
@@ -45,30 +54,30 @@ export default function CourseDetailPage() {
                 <div className="flex items-center gap-6 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <BookOpen className="w-4 h-4" />
-                    <span>24 pelajaran</span>
+                    <span>{course.totalLessons} pelajaran</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4" />
-                    <span>6 jam</span>
+                    <span>{course.duration}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Star className="w-4 h-4 fill-primary text-primary" />
-                    <span>4.9 (342 ulasan)</span>
+                    <span>{course.rating} ({course.reviewCount} ulasan)</span>
                   </div>
                 </div>
               </div>
 
               {/* Video Player */}
-              <CourseVideoPlayer youtubeVideoId="FJxAyg_sk7Q" />
+              <CourseVideoPlayer youtubeVideoId={course.youtubeVideoId} />
 
               {/* Tabs */}
-              <CourseTabs />
+              <CourseTabs course={course} />
             </div>
 
             {/* Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-24">
-                <CourseContentSidebar />
+                <CourseContentSidebar course={course} />
               </div>
             </div>
           </div>

@@ -1,20 +1,14 @@
 "use client"
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Check } from "lucide-react"
+import { Check, Star } from "lucide-react"
+import type { Course } from "@/lib/courses-data"
 
-export function CourseTabs() {
-  const learningPoints = [
-    "Memahami syarat kelayakan DV Lottery secara detail",
-    "Mengisi formulir DS-260 dengan benar dan lengkap",
-    "Tips meningkatkan peluang menang DV Lottery",
-    "Persiapan dokumen untuk interview konsulat",
-    "Teknik menjawab pertanyaan interview dengan percaya diri",
-    "Memahami proses medical exam dan vaksinasi",
-    "Langkah-langkah setelah mendapat approval visa",
-    "Cara menghindari kesalahan umum yang sering terjadi",
-  ]
+interface CourseTabsProps {
+  course: Course
+}
 
+export function CourseTabs({ course }: CourseTabsProps) {
   return (
     <Tabs defaultValue="overview" className="w-full">
       <TabsList className="w-full justify-start border-b rounded-none h-auto p-0 bg-transparent">
@@ -28,7 +22,7 @@ export function CourseTabs() {
           value="author"
           className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent"
         >
-          Instruktur
+          Narasumber
         </TabsTrigger>
         <TabsTrigger
           value="faq"
@@ -50,21 +44,21 @@ export function CourseTabs() {
         </TabsTrigger>
       </TabsList>
 
+      {/* Overview Tab */}
       <TabsContent value="overview" className="mt-6 space-y-6">
         <div className="space-y-4">
           <h3 className="text-2xl font-bold">Tentang Kursus</h3>
-          <p className="text-muted-foreground leading-relaxed">
-            Kursus komprehensif tentang DV Lottery (Diversity Visa Lottery Program) yang akan memandu Anda dari proses pendaftaran hingga persiapan interview di konsulat Amerika. Dipandu langsung oleh Tedchay yang telah berhasil memenangkan DV Lottery dan kini tinggal di Amerika Serikat.
-          </p>
-          <p className="text-muted-foreground leading-relaxed">
-            Cocok untuk siapa saja yang ingin mencoba peruntungan DV Lottery atau yang sudah menang dan membutuhkan panduan lengkap untuk proses selanjutnya. Pelajari dari pengalaman nyata, bukan hanya teori!
-          </p>
+          {course.overview.about.map((paragraph, index) => (
+            <p key={index} className="text-muted-foreground leading-relaxed">
+              {paragraph}
+            </p>
+          ))}
         </div>
 
         <div className="space-y-4">
           <h3 className="text-2xl font-bold">Yang Akan Anda Pelajari</h3>
           <div className="grid md:grid-cols-2 gap-4">
-            {learningPoints.map((point, index) => (
+            {course.overview.learningPoints.map((point, index) => (
               <div key={index} className="flex items-start gap-3">
                 <div className="mt-0.5">
                   <Check className="w-5 h-5 text-green-600" />
@@ -76,28 +70,98 @@ export function CourseTabs() {
         </div>
       </TabsContent>
 
+      {/* Instructor Tab */}
       <TabsContent value="author" className="mt-6 space-y-4">
         <h3 className="text-2xl font-bold">Tentang Instruktur</h3>
         <div className="space-y-3">
-          <p className="text-muted-foreground leading-relaxed">
-            <span className="font-semibold text-foreground">Tedchay</span> adalah mantan kontestan Master Chef Indonesia yang berhasil memenangkan DV Lottery dan kini tinggal di Amerika Serikat. Dengan pengalaman langsung dalam proses imigrasi, Tedchay membagikan tips dan trik praktis yang tidak akan Anda temukan di panduan resmi.
-          </p>
-          <p className="text-muted-foreground leading-relaxed">
-            Sebagai content creator dan YouTuber dengan ribuan subscriber, Tedchay memiliki kemampuan menjelaskan konsep kompleks dengan cara yang mudah dipahami dan engaging. Bergabunglah dengan ribuan orang Indonesia lainnya yang telah belajar dari pengalaman Tedchay!
-          </p>
+          <div className="font-semibold text-lg text-foreground">
+            {course.instructorBio.name} - {course.instructorBio.title}
+          </div>
+          {course.instructorBio.bio.map((paragraph, index) => (
+            <p key={index} className="text-muted-foreground leading-relaxed">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        <div className="space-y-3 pt-4">
+          <h4 className="font-semibold text-foreground">Credentials & Achievements:</h4>
+          <ul className="space-y-2">
+            {course.instructorBio.credentials.map((credential, index) => (
+              <li key={index} className="flex items-start gap-3">
+                <div className="mt-0.5">
+                  <Check className="w-5 h-5 text-primary" />
+                </div>
+                <span className="text-muted-foreground">{credential}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </TabsContent>
 
-      <TabsContent value="faq" className="mt-6">
-        <p className="text-muted-foreground">Pertanyaan yang sering diajukan akan ditampilkan di sini.</p>
+      {/* FAQ Tab */}
+      <TabsContent value="faq" className="mt-6 space-y-4">
+        <h3 className="text-2xl font-bold">Pertanyaan yang Sering Diajukan</h3>
+        <div className="space-y-6">
+          {course.faq.map((item, index) => (
+            <div key={index} className="space-y-2">
+              <h4 className="font-semibold text-foreground">{item.question}</h4>
+              <p className="text-muted-foreground leading-relaxed">{item.answer}</p>
+            </div>
+          ))}
+        </div>
       </TabsContent>
 
-      <TabsContent value="announcements" className="mt-6">
-        <p className="text-muted-foreground">Pengumuman kursus akan ditampilkan di sini.</p>
+      {/* Announcements Tab */}
+      <TabsContent value="announcements" className="mt-6 space-y-4">
+        <h3 className="text-2xl font-bold">Pengumuman Kursus</h3>
+        <div className="space-y-6">
+          {course.announcements.map((announcement, index) => (
+            <div key={index} className="border-l-4 border-primary pl-4 py-2 space-y-2">
+              <div className="flex items-center justify-between">
+                <h4 className="font-semibold text-foreground">{announcement.title}</h4>
+                <span className="text-sm text-muted-foreground">{announcement.date}</span>
+              </div>
+              <p className="text-muted-foreground leading-relaxed">{announcement.content}</p>
+            </div>
+          ))}
+        </div>
       </TabsContent>
 
-      <TabsContent value="reviews" className="mt-6">
-        <p className="text-muted-foreground">Ulasan dari siswa akan ditampilkan di sini.</p>
+      {/* Reviews Tab */}
+      <TabsContent value="reviews" className="mt-6 space-y-4">
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-2xl font-bold">Ulasan dari Siswa</h3>
+          <div className="flex items-center gap-2">
+            <Star className="w-5 h-5 fill-primary text-primary" />
+            <span className="font-semibold text-lg">{course.rating}</span>
+            <span className="text-muted-foreground">({course.reviewCount} ulasan)</span>
+          </div>
+        </div>
+        <div className="space-y-6">
+          {course.reviews.map((review, index) => (
+            <div key={index} className="border rounded-lg p-4 space-y-3">
+              <div className="flex items-start justify-between">
+                <div>
+                  <div className="font-semibold text-foreground">{review.name}</div>
+                  <div className="flex items-center gap-1 mt-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`w-4 h-4 ${i < review.rating
+                            ? "fill-primary text-primary"
+                            : "text-muted-foreground"
+                          }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <span className="text-sm text-muted-foreground">{review.date}</span>
+              </div>
+              <p className="text-muted-foreground leading-relaxed">{review.comment}</p>
+            </div>
+          ))}
+        </div>
       </TabsContent>
     </Tabs>
   )
