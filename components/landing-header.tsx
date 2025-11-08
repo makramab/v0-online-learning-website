@@ -12,8 +12,8 @@ export function LandingHeader() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <div className="text-2xl font-bold">
-              <span className="text-slate-800">goto</span>
-              <span className="text-primary">america</span>
+              <span className="text-slate-800">Awal</span>
+              <span className="text-primary">Baru.com</span>
             </div>
           </Link>
 

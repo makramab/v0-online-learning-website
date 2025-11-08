@@ -15,7 +15,7 @@ export interface Course {
   totalLessons: number
   rating: number
   reviewCount: number
-  youtubeVideoId: string
+  wistiaMediaId: string
 
   // Tab content
   overview: {
@@ -64,8 +64,8 @@ export const coursesData: Course[] = [
     instructor: "Teddy Cahyadi",
     duration: "6 jam",
     level: "Pemula",
-    price: 0,
-    originalPrice: 499000,
+    price: 149000,
+    originalPrice: 299000,
     tags: ["GRATIS", "POPULER", "PEMULA"],
     image: "/courses/1-TEDDY.jpg",
     visaType: "Diversity/Lottery Visa",
@@ -73,7 +73,7 @@ export const coursesData: Course[] = [
     totalLessons: 24,
     rating: 4.9,
     reviewCount: 342,
-    youtubeVideoId: "FJxAyg_sk7Q",
+    wistiaMediaId: "gzpq5sedf0",
 
     overview: {
       about: [
@@ -244,8 +244,8 @@ export const coursesData: Course[] = [
     instructor: "Riko Nugraha",
     duration: "3 jam",
     level: "Pemula",
-    price: 199000,
-    originalPrice: 399000,
+    price: 99000,
+    originalPrice: 199000,
     tags: ["DISKON", "PEMULA"],
     image: "/courses/2-RIKO.jpg",
     visaType: "Tourist Visa",
@@ -253,7 +253,7 @@ export const coursesData: Course[] = [
     totalLessons: 15,
     rating: 4.8,
     reviewCount: 156,
-    youtubeVideoId: "FJxAyg_sk7Q",
+    wistiaMediaId: "mtakj95z0k",
 
     overview: {
       about: [
@@ -400,8 +400,8 @@ export const coursesData: Course[] = [
     instructor: "Mutiara Indah Puspita Sari, S.Ars",
     duration: "8 jam",
     level: "Menengah",
-    price: 599000,
-    originalPrice: 999000,
+    price: 99000,
+    originalPrice: 199000,
     tags: ["POPULER", "BEASISWA"],
     image: "/courses/3-MUTT.jpg",
     visaType: "J1 Visa",
@@ -409,7 +409,7 @@ export const coursesData: Course[] = [
     totalLessons: 32,
     rating: 4.9,
     reviewCount: 218,
-    youtubeVideoId: "FJxAyg_sk7Q",
+    wistiaMediaId: "5pb0c21duu",
 
     overview: {
       about: [
@@ -568,8 +568,8 @@ export const coursesData: Course[] = [
     instructor: "Miftakhul Ma'rifah, S.Pd",
     duration: "5 jam",
     level: "Pemula",
-    price: 399000,
-    originalPrice: 599000,
+    price: 99000,
+    originalPrice: 199000,
     tags: ["KERJA", "PEMULA"],
     image: "/courses/4-MITA.jpg",
     visaType: "J1 Visa",
@@ -577,7 +577,7 @@ export const coursesData: Course[] = [
     totalLessons: 20,
     rating: 4.7,
     reviewCount: 189,
-    youtubeVideoId: "FJxAyg_sk7Q",
+    wistiaMediaId: "v7fd4wxbb5",
 
     overview: {
       about: [
@@ -736,8 +736,8 @@ export const coursesData: Course[] = [
     instructor: "Marcello Josua S",
     duration: "6 jam",
     level: "Menengah",
-    price: 449000,
-    originalPrice: 699000,
+    price: 99000,
+    originalPrice: 199000,
     tags: ["KARIR", "KULINER"],
     image: "/courses/5-MARCELLO.jpg",
     visaType: "J1 Visa",
@@ -745,7 +745,7 @@ export const coursesData: Course[] = [
     totalLessons: 25,
     rating: 4.8,
     reviewCount: 167,
-    youtubeVideoId: "FJxAyg_sk7Q",
+    wistiaMediaId: "gzpq5sedf0",
 
     overview: {
       about: [
@@ -907,8 +907,8 @@ export const coursesData: Course[] = [
     instructor: "Grace Gevani Aritonang, S.Ak",
     duration: "7 jam",
     level: "Menengah",
-    price: 549000,
-    originalPrice: 899000,
+    price: 99000,
+    originalPrice: 199000,
     tags: ["KARIR", "PROFESIONAL"],
     image: "/courses/6-GRACE.jpg",
     visaType: "J1 Visa",
@@ -916,7 +916,7 @@ export const coursesData: Course[] = [
     totalLessons: 28,
     rating: 4.9,
     reviewCount: 145,
-    youtubeVideoId: "FJxAyg_sk7Q",
+    wistiaMediaId: "dwgyj4f0qe",
 
     overview: {
       about: [
@@ -1088,8 +1088,8 @@ export const coursesData: Course[] = [
     instructor: "Fauzan Rahman",
     duration: "8 jam",
     level: "Menengah",
-    price: 599000,
-    originalPrice: 999000,
+    price: 99000,
+    originalPrice: 199000,
     tags: ["BEASISWA", "POPULER"],
     image: "/courses/7-FAUZAN.jpg",
     visaType: "J1 Visa",
@@ -1097,7 +1097,7 @@ export const coursesData: Course[] = [
     totalLessons: 35,
     rating: 4.8,
     reviewCount: 203,
-    youtubeVideoId: "FJxAyg_sk7Q",
+    wistiaMediaId: "gal6htd0ge",
 
     overview: {
       about: [
@@ -1270,8 +1270,8 @@ export const coursesData: Course[] = [
     instructor: "Eric Salim Marlie",
     duration: "6 jam",
     level: "Pemula",
-    price: 499000,
-    originalPrice: 799000,
+    price: 99000,
+    originalPrice: 199000,
     tags: ["KULIAH", "F1 VISA"],
     image: "/courses/8-ERIC.jpg",
     visaType: "F1 Visa",
@@ -1279,7 +1279,7 @@ export const coursesData: Course[] = [
     totalLessons: 27,
     rating: 4.7,
     reviewCount: 178,
-    youtubeVideoId: "FJxAyg_sk7Q",
+    wistiaMediaId: "a23hrvv2zg",
 
     overview: {
       about: [
@@ -1461,8 +1461,8 @@ export const coursesData: Course[] = [
     instructor: "Endin Nokik Stuyanna, MD, PhD",
     duration: "10 jam",
     level: "Lanjutan",
-    price: 799000,
-    originalPrice: 1299000,
+    price: 99000,
+    originalPrice: 199000,
     tags: ["PhD", "RISET", "LANJUTAN"],
     image: "/courses/9-ENDIN.jpg",
     visaType: "J1/F1 Visa",
@@ -1470,7 +1470,7 @@ export const coursesData: Course[] = [
     totalLessons: 40,
     rating: 4.9,
     reviewCount: 124,
-    youtubeVideoId: "FJxAyg_sk7Q",
+    wistiaMediaId: "gzpq5sedf0",
 
     overview: {
       about: [
@@ -1619,9 +1619,7 @@ export const coursesData: Course[] = [
         ]
       },
       {
-        id: "06",
-        title: "Research & Dissertation",
-        duration: "2 jam",
+        id: "06", title: "Research & Dissertation", duration: "2 jam",
         lessons: [
           { title: "Developing Your Research Project", duration: "25 menit" },
           { title: "Research Methodology Best Practices", duration: "30 menit" },

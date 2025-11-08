@@ -48,9 +48,9 @@ export default function TentangPage() {
     },
     {
       year: "2020-an",
-      title: "Membangun gotoamerica",
+      title: "Membangun AwalBaru.com",
       description:
-        "Setelah beradaptasi dan sukses di Amerika, memutuskan untuk membantu orang Indonesia lain meraih American Dream mereka melalui platform gotoamerica.",
+        "Setelah beradaptasi dan sukses di Amerika, memutuskan untuk membantu orang Indonesia lain meraih American Dream mereka melalui platform AwalBaru.com.",
       icon: Building2,
       gradient: "from-pink-500 to-rose-500"
     },
@@ -172,7 +172,7 @@ export default function TentangPage() {
         <div className="container mx-auto px-6 lg:px-16">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Kenapa Saya Membuat gotoamerica?</h2>
+              <h2 className="text-4xl font-bold mb-4">Kenapa Saya Membuat AwalBaru.com?</h2>
             </div>
             <div className="bg-gradient-to-br from-primary/5 to-transparent border-2 border-primary/20 rounded-2xl p-8 lg:p-12 space-y-6 shadow-lg">
               <div className="flex items-start gap-4">
@@ -186,7 +186,7 @@ export default function TentangPage() {
                 </p>
               </div>
               <p className="text-lg leading-relaxed pl-18">
-                gotoamerica lahir dari keinginan saya untuk membagikan pengalaman nyata - bukan teori dari buku,
+                AwalBaru.com lahir dari keinginan saya untuk membagikan pengalaman nyata - bukan teori dari buku,
                 tapi langkah-langkah praktis yang saya sendiri jalani. Saya ingin memastikan bahwa setiap orang
                 Indonesia yang punya mimpi untuk hidup di Amerika memiliki panduan yang jelas, jujur, dan dapat
                 dipercaya.

@@ -6,7 +6,7 @@ export function LandingFooter() {
     <footer className="bg-slate-50 border-t border-slate-200 py-12">
       <div className="container mx-auto px-6 lg:px-16">
         <div className="flex flex-col items-center gap-6">
-          <p className="text-sm text-slate-600">© 2025 gotoamerica. Membantu Orang Indonesia Meraih American Dream.</p>
+          <p className="text-sm text-slate-600">© 2025 AwalBaru.com. Membantu Orang Indonesia Meraih American Dream.</p>
           <div className="flex items-center gap-6">
             <Link
               href="https://www.youtube.com/@tedchay"

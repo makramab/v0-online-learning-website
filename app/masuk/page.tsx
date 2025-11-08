@@ -18,8 +18,8 @@ export default function MasukPage() {
     e.preventDefault()
     // TODO: Implement actual login logic
     console.log("Login with email:", email)
-    // For now, just redirect to dashboard
-    router.push("/dashboard")
+    // For now, just redirect to courses
+    router.push("/courses")
   }
 
   const handleGoogleLogin = () => {
@@ -35,8 +35,8 @@ export default function MasukPage() {
         <div className="text-center mb-8">
           <Link href="/" className="inline-block">
             <div className="text-3xl font-bold">
-              <span className="text-foreground">goto</span>
-              <span className="text-[#1c9af1]">america</span>
+              <span className="text-foreground">Awal</span>
+              <span className="text-[#1c9af1]">Baru.com</span>
             </div>
           </Link>
           <p className="text-muted-foreground mt-2">Masuk ke akun Anda</p>

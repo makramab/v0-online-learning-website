@@ -180,7 +180,7 @@ export default function CommunityPage() {
 
             <div className="relative z-10 space-y-4">
               <div className="flex items-center gap-3">
-                <h1 className="text-4xl font-bold text-white">Komunitas gotoamerica</h1>
+                <h1 className="text-4xl font-bold text-white">Komunitas AwalBaru.com</h1>
                 <Badge className="bg-yellow-500 text-yellow-900 hover:bg-yellow-500">BETA</Badge>
               </div>
               <p className="text-white/90 text-lg">

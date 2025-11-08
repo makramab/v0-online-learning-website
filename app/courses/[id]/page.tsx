@@ -68,7 +68,7 @@ export default function CourseDetailPage({ params }: { params: { id: string } })
               </div>
 
               {/* Video Player */}
-              <CourseVideoPlayer youtubeVideoId={course.youtubeVideoId} />
+              <CourseVideoPlayer wistiaMediaId={course.wistiaMediaId} />
 
               {/* Tabs */}
               <CourseTabs course={course} />

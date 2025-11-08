@@ -18,8 +18,8 @@ const contactMethods = [
     icon: Mail,
     title: "Email Support",
     description: "Kirim pertanyaan via email",
-    action: "support@gotoamerica.com",
-    link: "mailto:support@gotoamerica.com",
+    action: "support@awalbaru.com",
+    link: "mailto:support@awalbaru.com",
     color: "from-blue-500 to-blue-400"
   },
   {
@@ -179,7 +179,7 @@ export default function SupportPage() {
               <p className="text-white/90 mb-4">
                 Tim support kami siap membantu Anda dengan pertanyaan apapun
               </p>
-              <a href="mailto:support@gotoamerica.com">
+              <a href="mailto:support@awalbaru.com">
                 <Button size="lg" className="bg-white text-[#1c9af1] hover:bg-white/90">
                   <Mail className="w-5 h-5 mr-2" />
                   Kirim Email ke Support

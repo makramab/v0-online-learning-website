@@ -8,7 +8,7 @@ import { SidebarProvider } from "@/contexts/sidebar-context"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "gotoamerica - Your Pathway from Indonesia to the United States",
+  title: "AwalBaru.com - Your Pathway from Indonesia to the United States",
   description:
     "Platform pembelajaran untuk orang Indonesia yang ingin mewujudkan American Dream. Dipandu langsung oleh Tedchay, pemenang DV Lottery yang sukses di Amerika.",
   generator: "v0.app",

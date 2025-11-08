@@ -91,8 +91,8 @@ export default function DaftarPage() {
         <div className="text-center mb-8">
           <Link href="/" className="inline-block">
             <div className="text-3xl font-bold">
-              <span className="text-foreground">goto</span>
-              <span className="text-[#1c9af1]">america</span>
+              <span className="text-foreground">Awal</span>
+              <span className="text-[#1c9af1]">Baru.com</span>
             </div>
           </Link>
           <p className="text-muted-foreground mt-2">Mulai perjalanan Anda ke Amerika</p>

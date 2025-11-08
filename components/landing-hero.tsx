@@ -31,18 +31,18 @@ export function LandingHero() {
                 </span>
                 <br />
                 <span className="relative inline-block">
-                  <span className="relative z-10 text-white">IMPIAN HIDUP DI </span>
+                  <span className="relative z-10 text-white">IMPIAN HIDUP DI AMERIKA</span>
                   <div className="absolute inset-0 bg-white/20 rounded-full blur-xl"></div>
                 </span>
-                <span className="relative inline-block">
-                  <span className="relative z-10 text-white">AMERIKA</span>
-                  <div className="absolute inset-0 bg-white/20 rounded-full blur-xl"></div>
-                </span>
+                {/* <span className="relative inline-block"> */}
+                {/*   <span className="relative z-10 text-white"></span> */}
+                {/*   <div className="absolute inset-0 bg-white/20 rounded-full blur-xl"></div> */}
+                {/* </span> */}
               </h1>
             </div>
 
             <p className="text-lg text-white/80 max-w-xl leading-relaxed">
-              Bergabunglah dengan gotoamerica — platform pembelajaran yang membantu orang Indonesia mewujudkan impian tinggal dan berkembang di Amerika Serikat. Dipandu langsung oleh Tedchay yang telah merasakan perjalanan ini.
+              Bergabunglah dengan AwalBaru.com — platform pembelajaran yang membantu orang Indonesia mewujudkan impian tinggal dan berkembang di Amerika Serikat. Dipandu langsung oleh Tedchay yang telah merasakan perjalanan ini.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
@@ -76,8 +76,8 @@ export function LandingHero() {
               <div className="relative z-10 transform hover:scale-105 transition-transform duration-500">
                 <div className="relative w-[625px] h-[700px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
                   <Image
-                    src="/tedchay-hero.png"
-                    alt="Tedchay - Jr. Sous Chef in New York, USA"
+                    src="/courses/1-TEDDY.jpg"
+                    alt="Teddy Cahyadi - Jr. Executive Sous Chef in New York, USA"
                     fill
                     className="object-contain"
                     priority
