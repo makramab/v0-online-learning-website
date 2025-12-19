@@ -3,12 +3,10 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { BookOpen, Home, Settings, Users, HelpCircle, GraduationCap, PlayCircle, TrendingUp } from "lucide-react"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { Progress } from "@/components/ui/progress"
+import { BookOpen, Home, Settings, Users, HelpCircle, GraduationCap, PlayCircle, X, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { useSidebar } from "@/contexts/sidebar-context"
+import { useContinueLearning } from "@/contexts/continue-learning-context"
 
 const mainNavItems = [
   { href: "/dashboard", icon: Home, label: "Overview" },
@@ -22,35 +20,50 @@ const bottomNavItems = [
   { href: "/courses/support", icon: HelpCircle, label: "Support" },
 ]
 
-// Mock user data
-const userData = {
-  name: "Budi Santoso",
-  initials: "BS",
-  level: "Learner",
-  overallProgress: 45,
-  coursesEnrolled: 3,
-  lastCourse: {
-    id: 1,
-    title: "DV Lottery Masterclass",
-    image: "/courses/1-TEDDY.jpg",
-    progress: 45
-  }
-}
-
 export function DashboardSidebar() {
   const pathname = usePathname()
-  const { showUserCards } = useSidebar()
+  const { showUserCards, mobileMenuOpen, setMobileMenuOpen } = useSidebar()
+  const { lastActivity, isLoading: isLoadingActivity } = useContinueLearning()
+
+  const handleLinkClick = () => {
+    // Close mobile menu when a link is clicked
+    setMobileMenuOpen(false)
+  }
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 bg-background border-r border-border flex flex-col">
-      {/* Logo */}
-      <div className="p-6 pb-4">
-        <Link href="/" className="flex items-center gap-2">
+    <>
+      {/* Mobile Overlay */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Sidebar */}
+      <aside className={cn(
+        "fixed left-0 top-0 h-screen w-64 bg-background border-r border-border flex flex-col z-50 transition-transform duration-300",
+        // Mobile: hidden by default, shown when mobileMenuOpen
+        "max-lg:-translate-x-full",
+        mobileMenuOpen && "max-lg:translate-x-0",
+        // Desktop: always visible
+        "lg:translate-x-0"
+      )}>
+      {/* Logo with close button for mobile */}
+      <div className="p-6 pb-4 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-2" onClick={handleLinkClick}>
           <div className="text-xl font-bold">
             <span className="text-foreground">Awal</span>
             <span className="text-primary">Baru.com</span>
           </div>
         </Link>
+        <button
+          onClick={() => setMobileMenuOpen(false)}
+          className="lg:hidden p-2 text-muted-foreground hover:text-foreground"
+          aria-label="Close menu"
+        >
+          <X className="w-5 h-5" />
+        </button>
       </div>
 
       {/* Divider */}
@@ -66,6 +79,7 @@ export function DashboardSidebar() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={handleLinkClick}
                 className={cn(
                   "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors relative",
                   isActive
@@ -84,65 +98,35 @@ export function DashboardSidebar() {
       {/* Continue Learning Card */}
       {showUserCards && (
         <div className="px-4 pb-4">
-          <div className="bg-background rounded-xl p-3 border border-border">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="relative w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden">
-                <img
-                  src={userData.lastCourse.image}
-                  alt={userData.lastCourse.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-xs text-muted-foreground">Continue Learning</p>
-                <p className="text-xs font-semibold truncate">{userData.lastCourse.title}</p>
+          {isLoadingActivity ? (
+            <div className="bg-background rounded-xl p-3 border border-border">
+              <div className="flex items-center justify-center py-2">
+                <Loader2 className="w-4 h-4 animate-spin text-muted-foreground" />
               </div>
             </div>
-            <Link href={`/courses/${userData.lastCourse.id}`}>
-              <Button size="sm" className="w-full bg-red-600 hover:bg-red-700 text-white">
-                <PlayCircle className="w-3 h-3 mr-1" />
-                Resume
-              </Button>
-            </Link>
-          </div>
-        </div>
-      )}
-
-      {/* User Profile Card */}
-      {showUserCards && (
-        <div className="px-4 pb-4">
-          <div className="bg-gradient-to-br from-[#1c9af1] to-[#1580d1] rounded-xl p-4 text-white">
-            <div className="flex items-center gap-3 mb-3">
-              <Avatar className="w-12 h-12 border-2 border-white/20">
-                <AvatarFallback className="bg-white/10 text-white font-semibold text-base">
-                  {userData.initials}
-                </AvatarFallback>
-              </Avatar>
-              <div className="flex-1">
-                <p className="font-semibold text-sm truncate">{userData.name}</p>
-                <Badge className="bg-white/20 text-white hover:bg-white/20 text-xs mt-1">
-                  {userData.level}
-                </Badge>
-              </div>
-            </div>
-            <div className="space-y-2">
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-white/80">Overall Progress</span>
-                <span className="font-semibold">{userData.overallProgress}%</span>
-              </div>
-              <Progress value={userData.overallProgress} className="h-1.5 bg-white/20" />
-              <div className="flex items-center gap-4 text-xs text-white/80 pt-1">
-                <div className="flex items-center gap-1">
-                  <BookOpen className="w-3 h-3" />
-                  <span>{userData.coursesEnrolled} courses</span>
+          ) : lastActivity ? (
+            <div className="bg-background rounded-xl p-3 border border-border">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="relative w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden">
+                  <img
+                    src={lastActivity.courseImage}
+                    alt={lastActivity.courseTitle}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="flex items-center gap-1">
-                  <TrendingUp className="w-3 h-3" />
-                  <span>Beginner</span>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs text-muted-foreground">Continue Learning</p>
+                  <p className="text-xs font-semibold truncate">{lastActivity.courseTitle}</p>
                 </div>
               </div>
+              <Link href={lastActivity.resumeLink} onClick={handleLinkClick}>
+                <Button size="sm" className="w-full bg-red-600 hover:bg-red-700 text-white">
+                  <PlayCircle className="w-3 h-3 mr-1" />
+                  Resume
+                </Button>
+              </Link>
             </div>
-          </div>
+          ) : null}
         </div>
       )}
 
@@ -155,6 +139,7 @@ export function DashboardSidebar() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={handleLinkClick}
               className={cn(
                 "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
                 isActive
@@ -169,5 +154,6 @@ export function DashboardSidebar() {
         })}
       </div>
     </aside>
+    </>
   )
 }

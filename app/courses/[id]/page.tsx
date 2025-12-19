@@ -1,87 +1,76 @@
 import { DashboardSidebar } from "@/components/dashboard-sidebar"
 import { DashboardHeader } from "@/components/dashboard-header"
-import { CourseVideoPlayer } from "@/components/course-video-player"
-import { CourseTabs } from "@/components/course-tabs"
-import { CourseContentSidebar } from "@/components/course-content-sidebar"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { ArrowLeft, BookOpen, Clock, Star, Share2 } from "lucide-react"
-import Link from "next/link"
+import { CoursePlayerWithProgress } from "@/components/course-player-with-progress"
 import { getCourseById } from "@/lib/courses-data"
 import { notFound } from "next/navigation"
+import { createClient } from "@/lib/supabase/server"
+import { CoursePreview } from "./_components/course-preview"
+import { courseIdToSlug } from "@/lib/course-mapping"
 
-export default function CourseDetailPage({ params }: { params: { id: string } }) {
-  const courseId = parseInt(params.id)
+async function checkUserEnrollment(courseSlug: string) {
+  const supabase = await createClient()
+
+  // Get current user
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) {
+    return { isEnrolled: false, dbCourseId: null }
+  }
+
+  // Get course from database by slug
+  const { data: course } = await supabase
+    .from("courses")
+    .select("id")
+    .eq("slug", courseSlug)
+    .single()
+
+  if (!course) {
+    return { isEnrolled: false, dbCourseId: null }
+  }
+
+  // Check enrollment
+  const { data: enrollment } = await supabase
+    .from("enrollments")
+    .select("*")
+    .eq("user_id", user.id)
+    .eq("course_id", course.id)
+    .eq("payment_status", "paid")
+    .single()
+
+  return {
+    isEnrolled: !!enrollment,
+    dbCourseId: course.id,
+  }
+}
+
+export default async function CourseDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const courseId = parseInt(id)
   const course = getCourseById(courseId)
 
   if (!course) {
     notFound()
   }
 
+  // Get the database slug for this course
+  const courseSlug = courseIdToSlug[courseId]
+
+  // Check enrollment status
+  const { isEnrolled, dbCourseId } = courseSlug
+    ? await checkUserEnrollment(courseSlug)
+    : { isEnrolled: false, dbCourseId: null }
+
+  // If not enrolled, show preview page
+  if (!isEnrolled) {
+    return <CoursePreview course={course} dbCourseId={dbCourseId} />
+  }
+
+  // If enrolled, show full course content with progress tracking
   return (
     <div className="flex min-h-screen">
       <DashboardSidebar />
-      <div className="flex-1 ml-64">
+      <div className="flex-1 lg:ml-64">
         <DashboardHeader />
-        <main className="p-8">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-            <Link href="/courses" className="hover:text-foreground transition-colors">
-              <ArrowLeft className="w-4 h-4 inline mr-1" />
-              Kursus
-            </Link>
-            <span>/</span>
-            <span>{course.category}</span>
-            <span>/</span>
-            <span className="text-foreground">{course.title.split(':')[0]}</span>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Main Content */}
-            <div className="lg:col-span-2 space-y-6">
-              {/* Course Header */}
-              <div className="space-y-4">
-                <div className="flex items-start justify-between">
-                  <div className="space-y-2">
-                    <h1 className="text-4xl font-bold text-balance">{course.title}</h1>
-                    <Badge variant="outline">{course.category}</Badge>
-                  </div>
-                  <Button variant="ghost" size="icon">
-                    <Share2 className="w-5 h-5" />
-                  </Button>
-                </div>
-
-                <div className="flex items-center gap-6 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-2">
-                    <BookOpen className="w-4 h-4" />
-                    <span>{course.totalLessons} pelajaran</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4" />
-                    <span>{course.duration}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Star className="w-4 h-4 fill-primary text-primary" />
-                    <span>{course.rating} ({course.reviewCount} ulasan)</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Video Player */}
-              <CourseVideoPlayer wistiaMediaId={course.wistiaMediaId} />
-
-              {/* Tabs */}
-              <CourseTabs course={course} />
-            </div>
-
-            {/* Sidebar */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-24">
-                <CourseContentSidebar course={course} />
-              </div>
-            </div>
-          </div>
-        </main>
+        <CoursePlayerWithProgress course={course} localCourseId={courseId} />
       </div>
     </div>
   )

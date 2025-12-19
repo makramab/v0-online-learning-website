@@ -1,14 +1,45 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import { useWistiaProgress } from "@/hooks/use-wistia-progress"
 
 interface WistiaPlayerProps {
   mediaId: string
   className?: string
+  // Progress tracking props (optional)
+  trackProgress?: boolean
+  localCourseId?: number
+  sectionId?: string
+  lessonIndex?: number
+  resumePosition?: number
+  onLessonComplete?: () => void
+  onProgressUpdate?: (percentWatched: number) => void
 }
 
-export function WistiaPlayer({ mediaId, className = "" }: WistiaPlayerProps) {
+export function WistiaPlayer({
+  mediaId,
+  className = "",
+  trackProgress = false,
+  localCourseId,
+  sectionId,
+  lessonIndex,
+  resumePosition = 0,
+  onLessonComplete,
+  onProgressUpdate,
+}: WistiaPlayerProps) {
   const containerRef = useRef<HTMLDivElement>(null)
+
+  // Use progress tracking hook if enabled
+  const { isReady, percentWatched, seekTo } = useWistiaProgress({
+    mediaId,
+    localCourseId: localCourseId || 0,
+    sectionId: sectionId || "",
+    lessonIndex: lessonIndex || 0,
+    resumePosition,
+    onComplete: onLessonComplete,
+    onProgressUpdate,
+    enabled: trackProgress && !!localCourseId && !!sectionId && lessonIndex !== undefined,
+  })
 
   useEffect(() => {
     // Load Wistia player script
@@ -37,7 +68,7 @@ export function WistiaPlayer({ mediaId, className = "" }: WistiaPlayerProps) {
   }, [mediaId])
 
   return (
-    <div ref={containerRef} className={className}>
+    <div ref={containerRef} className={className} data-progress-ready={isReady} data-percent-watched={percentWatched}>
       <style dangerouslySetInnerHTML={{
         __html: `
           wistia-player[media-id='${mediaId}']:not(:defined) {
@@ -52,3 +83,6 @@ export function WistiaPlayer({ mediaId, className = "" }: WistiaPlayerProps) {
     </div>
   )
 }
+
+// Export types for external use
+export type { WistiaPlayerProps }

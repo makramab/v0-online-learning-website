@@ -233,31 +233,31 @@ export default function TentangPage() {
       </section>
 
       {/* Impact Stats Section */}
-      <section className="py-20 bg-background border-t">
-        <div className="container mx-auto px-6 lg:px-16">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Dampak yang Telah Kami Ciptakan</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Membantu ribuan orang Indonesia selangkah lebih dekat dengan American Dream mereka.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {impactStats.map((stat, index) => {
-              const Icon = stat.icon
-              return (
-                <div key={index} className="text-center group">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="text-5xl font-bold text-primary mb-2">{stat.number}</div>
-                  <div className="text-muted-foreground font-medium">{stat.label}</div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+      {/* <section className="py-20 bg-background border-t"> */}
+      {/*   <div className="container mx-auto px-6 lg:px-16"> */}
+      {/*     <div className="text-center mb-16"> */}
+      {/*       <h2 className="text-4xl font-bold mb-4">Dampak yang Telah Kami Ciptakan</h2> */}
+      {/*       <p className="text-muted-foreground text-lg max-w-2xl mx-auto"> */}
+      {/*         Membantu ribuan orang Indonesia selangkah lebih dekat dengan American Dream mereka. */}
+      {/*       </p> */}
+      {/*     </div> */}
+      {/**/}
+      {/*     <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto"> */}
+      {/*       {impactStats.map((stat, index) => { */}
+      {/*         const Icon = stat.icon */}
+      {/*         return ( */}
+      {/*           <div key={index} className="text-center group"> */}
+      {/*             <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform"> */}
+      {/*               <Icon className="w-8 h-8 text-primary" /> */}
+      {/*             </div> */}
+      {/*             <div className="text-5xl font-bold text-primary mb-2">{stat.number}</div> */}
+      {/*             <div className="text-muted-foreground font-medium">{stat.label}</div> */}
+      {/*           </div> */}
+      {/*         ) */}
+      {/*       })} */}
+      {/*     </div> */}
+      {/*   </div> */}
+      {/* </section> */}
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-primary/5 to-primary/10 border-t">

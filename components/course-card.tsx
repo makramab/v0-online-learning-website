@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Clock, Star } from "lucide-react"
+import { Clock, Star, CheckCircle2, PlayCircle } from "lucide-react"
 import Image from "next/image"
 
 interface CourseCardProps {
@@ -14,6 +15,7 @@ interface CourseCardProps {
   rating?: number
   tags?: string[]
   image: string
+  isOwned?: boolean
 }
 
 export function CourseCard({
@@ -27,6 +29,7 @@ export function CourseCard({
   rating,
   tags = [],
   image,
+  isOwned = false,
 }: CourseCardProps) {
   // Format Indonesian Rupiah
   const formatIDR = (amount: number) => {
@@ -41,7 +44,11 @@ export function CourseCard({
   }
 
   return (
-    <Card className="overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer border-0 p-0">
+    <Card className={`overflow-hidden hover:shadow-lg transition-shadow group cursor-pointer p-0 ${
+      isOwned
+        ? 'border-2 border-[#1c9af1]/40'
+        : 'border-0'
+    }`}>
       <div className="relative aspect-[828/914] overflow-hidden bg-slate-50">
           <Image
             src={image || "/placeholder.svg"}
@@ -49,14 +56,24 @@ export function CourseCard({
             fill
             className="object-contain group-hover:scale-105 transition-transform duration-300"
           />
-          {tags.length > 0 && (
+          {/* Owned Badge - Shows at top left when owned */}
+          {isOwned ? (
             <div className="absolute top-3 left-3 flex gap-2">
-              {tags.map((tag) => (
-                <Badge key={tag} className="bg-primary text-primary-foreground font-semibold text-xs">
-                  {tag}
-                </Badge>
-              ))}
+              <Badge className="bg-green-500 text-white border-0 font-semibold text-xs shadow-md">
+                <CheckCircle2 className="w-3 h-3 mr-1" />
+                DIMILIKI
+              </Badge>
             </div>
+          ) : (
+            tags.length > 0 && (
+              <div className="absolute top-3 left-3 flex gap-2">
+                {tags.map((tag) => (
+                  <Badge key={tag} className="bg-primary text-primary-foreground font-semibold text-xs">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            )
           )}
         </div>
       <CardContent className="p-5 space-y-3">
@@ -80,12 +97,19 @@ export function CourseCard({
         </div>
       </CardContent>
       <CardFooter className="px-5 pb-5 pt-0">
-        <div className="flex items-center gap-2">
-          {originalPrice && originalPrice > 0 && (
-            <span className="text-sm text-muted-foreground line-through">{formatIDR(originalPrice)}</span>
-          )}
-          <span className="text-2xl font-bold text-primary">{formatIDR(price)}</span>
-        </div>
+        {isOwned ? (
+          <Button className="w-full bg-[#1c9af1] hover:bg-[#1580d1] text-white font-semibold">
+            <PlayCircle className="w-4 h-4 mr-2" />
+            Lanjutkan Belajar
+          </Button>
+        ) : (
+          <div className="flex items-center gap-2">
+            {originalPrice && originalPrice > 0 && (
+              <span className="text-sm text-muted-foreground line-through">{formatIDR(originalPrice)}</span>
+            )}
+            <span className="text-2xl font-bold text-primary">{formatIDR(price)}</span>
+          </div>
+        )}
       </CardFooter>
     </Card>
   )

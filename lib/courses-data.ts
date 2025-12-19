@@ -15,7 +15,8 @@ export interface Course {
   totalLessons: number
   rating: number
   reviewCount: number
-  wistiaMediaId: string
+  wistiaMediaId: string // Main course video
+  previewWistiaMediaId: string // Preview video for non-enrolled users
 
   // Tab content
   overview: {
@@ -74,6 +75,7 @@ export const coursesData: Course[] = [
     rating: 4.9,
     reviewCount: 342,
     wistiaMediaId: "gzpq5sedf0",
+    previewWistiaMediaId: "hu02uiarql", // TODO: Replace with actual preview video ID
 
     overview: {
       about: [
@@ -254,6 +256,7 @@ export const coursesData: Course[] = [
     rating: 4.8,
     reviewCount: 156,
     wistiaMediaId: "mtakj95z0k",
+    previewWistiaMediaId: "rl4g0kxmzi", // TODO: Replace with actual preview video ID
 
     overview: {
       about: [
@@ -410,6 +413,7 @@ export const coursesData: Course[] = [
     rating: 4.9,
     reviewCount: 218,
     wistiaMediaId: "5pb0c21duu",
+    previewWistiaMediaId: "kq5y10yvic", // TODO: Replace with actual preview video ID
 
     overview: {
       about: [
@@ -578,6 +582,7 @@ export const coursesData: Course[] = [
     rating: 4.7,
     reviewCount: 189,
     wistiaMediaId: "v7fd4wxbb5",
+    previewWistiaMediaId: "kq5y10yvic", // TODO: Replace with actual preview video ID
 
     overview: {
       about: [
@@ -746,6 +751,7 @@ export const coursesData: Course[] = [
     rating: 4.8,
     reviewCount: 167,
     wistiaMediaId: "gzpq5sedf0",
+    previewWistiaMediaId: "6fujmfkm1n", // TODO: Replace with actual preview video ID
 
     overview: {
       about: [
@@ -917,6 +923,7 @@ export const coursesData: Course[] = [
     rating: 4.9,
     reviewCount: 145,
     wistiaMediaId: "dwgyj4f0qe",
+    previewWistiaMediaId: "0sxtqyhxf1", // TODO: Replace with actual preview video ID
 
     overview: {
       about: [
@@ -1098,6 +1105,7 @@ export const coursesData: Course[] = [
     rating: 4.8,
     reviewCount: 203,
     wistiaMediaId: "gal6htd0ge",
+    previewWistiaMediaId: "6lb1rtyt27", // TODO: Replace with actual preview video ID
 
     overview: {
       about: [
@@ -1280,6 +1288,7 @@ export const coursesData: Course[] = [
     rating: 4.7,
     reviewCount: 178,
     wistiaMediaId: "a23hrvv2zg",
+    previewWistiaMediaId: "hsh7vk1m5d", // TODO: Replace with actual preview video ID
 
     overview: {
       about: [
@@ -1471,6 +1480,7 @@ export const coursesData: Course[] = [
     rating: 4.9,
     reviewCount: 124,
     wistiaMediaId: "gzpq5sedf0",
+    previewWistiaMediaId: "j5mgirr4gd", // TODO: Replace with actual preview video ID
 
     overview: {
       about: [
