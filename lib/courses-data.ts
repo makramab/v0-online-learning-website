@@ -74,7 +74,7 @@ export const coursesData: Course[] = [
     totalLessons: 24,
     rating: 4.9,
     reviewCount: 342,
-    wistiaMediaId: "gzpq5sedf0",
+    wistiaMediaId: "5inp6y66ic",
     previewWistiaMediaId: "hu02uiarql", // TODO: Replace with actual preview video ID
 
     overview: {
@@ -750,7 +750,7 @@ export const coursesData: Course[] = [
     totalLessons: 25,
     rating: 4.8,
     reviewCount: 167,
-    wistiaMediaId: "gzpq5sedf0",
+    wistiaMediaId: "vlfwvsrsrr",
     previewWistiaMediaId: "6fujmfkm1n", // TODO: Replace with actual preview video ID
 
     overview: {
