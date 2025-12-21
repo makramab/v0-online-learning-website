@@ -18,6 +18,7 @@ export const courseIdToSlug: Record<number, string> = {
   7: "lpdp-scholarship",
   8: "f1-visa-undergraduate",
   9: "phd-postdoc-research",
+  10: "community-solutions-program",
 }
 
 // Database Slug → Local ID (reverse mapping)

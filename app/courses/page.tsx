@@ -33,7 +33,7 @@ const allCourses = getAllCourses()
 // Bundle configuration
 const BUNDLE_CONFIG = {
   name: "Paket Semua Kursus",
-  price: 499000,
+  price: 249000,
   originalPrice: 999000,
   description: "Akses semua 9 kursus premium dengan satu pembelian. Hemat lebih dari 50%!",
   features: [

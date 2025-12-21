@@ -413,7 +413,7 @@ export const coursesData: Course[] = [
     rating: 4.9,
     reviewCount: 218,
     wistiaMediaId: "5pb0c21duu",
-    previewWistiaMediaId: "kq5y10yvic", // TODO: Replace with actual preview video ID
+    previewWistiaMediaId: "anogj1s4s9", // TODO: Replace with actual preview video ID
 
     overview: {
       about: [
@@ -1682,6 +1682,187 @@ export const coursesData: Course[] = [
           { title: "Alternative Careers for PhDs", duration: "20 menit" },
           { title: "Networking & Professional Development", duration: "12 menit" },
           { title: "Work Authorization: OPT, H1B, Green Card", duration: "8 menit" }
+        ]
+      }
+    ]
+  },
+
+  // Course 10 - Dinar - Community Solutions Program
+  {
+    id: 10,
+    title: "Community Solutions Program: Fellowship di Amerika",
+    description: "Panduan lengkap mendapatkan fellowship Community Solutions Program dari U.S. Department of State. Pengalaman 4 bulan bekerja di NGO Amerika dan membangun jaringan internasional.",
+    instructor: "Dinar Pratiwi, S.Sos",
+    duration: "5 jam",
+    level: "Menengah",
+    price: 99000,
+    originalPrice: 199000,
+    tags: ["FELLOWSHIP", "NGO", "KOMUNITAS"],
+    image: "/courses/10-DINAR.JPEG",
+    visaType: "J1 Visa",
+    category: "Fellowship & Community Development",
+    totalLessons: 22,
+    rating: 4.8,
+    reviewCount: 134,
+    wistiaMediaId: "3i1m0738a3",
+    previewWistiaMediaId: "qevchmmumy",
+
+    overview: {
+      about: [
+        "Community Solutions Program (CSP) adalah program fellowship bergengsi yang didanai oleh U.S. Department of State untuk para pemimpin komunitas dari seluruh dunia. Selama 4 bulan di Amerika, fellows bekerja langsung dengan NGO Amerika untuk mengembangkan solusi inovatif bagi tantangan di komunitas mereka.",
+        "Dinar, seorang aktivis sosial yang berhasil menjadi CSP Fellow, akan membagikan seluruh pengalaman dari proses aplikasi hingga implementasi proyek pasca-fellowship. Cocok untuk aktivis, pekerja sosial, atau siapapun yang ingin membuat dampak positif di komunitas."
+      ],
+      learningPoints: [
+        "Memahami program Community Solutions dan eligibility",
+        "Cara menulis aplikasi yang compelling",
+        "Strategi memilih isu dan organisasi host",
+        "Persiapan interview dan assessment",
+        "Pengalaman fellowship di NGO Amerika",
+        "Networking dengan fellows internasional",
+        "Implementasi proyek pasca-fellowship",
+        "Bergabung dengan alumni network global"
+      ]
+    },
+
+    instructorBio: {
+      name: "Dinar Pratiwi, S.Sos",
+      title: "Community Solutions Program Fellow",
+      bio: [
+        "Dinar adalah seorang aktivis sosial dan community organizer yang berhasil terpilih sebagai Community Solutions Program Fellow. Selama fellowship, ia ditempatkan di sebuah NGO di Amerika yang fokus pada pemberdayaan perempuan dan pengembangan ekonomi lokal.",
+        "Dengan pengalaman bekerja di berbagai organisasi non-profit di Indonesia, Dinar memahami tantangan yang dihadapi para change-makers lokal. Melalui kursus ini, ia ingin membantu lebih banyak orang Indonesia mendapatkan kesempatan fellowship ini dan membawa pulang ilmu untuk memajukan komunitas mereka."
+      ],
+      credentials: [
+        "Community Solutions Program Fellow 2023",
+        "Sarjana Sosiologi (S.Sos)",
+        "5+ tahun pengalaman di NGO",
+        "Founder komunitas pemberdayaan lokal"
+      ]
+    },
+
+    faq: [
+      {
+        question: "Apa itu Community Solutions Program?",
+        answer: "CSP adalah program fellowship 4 bulan yang didanai U.S. Department of State. Fellows ditempatkan di NGO Amerika untuk belajar best practices dalam community development, civic engagement, atau isu sosial lainnya."
+      },
+      {
+        question: "Apakah biaya fellowship ditanggung sepenuhnya?",
+        answer: "Ya! CSP adalah fully-funded fellowship. Semua biaya ditanggung termasuk tiket pesawat PP, akomodasi, living allowance, asuransi kesehatan, dan biaya program. Anda tidak perlu mengeluarkan biaya sama sekali."
+      },
+      {
+        question: "Siapa yang bisa apply CSP?",
+        answer: "CSP terbuka untuk emerging leaders berusia 25-38 tahun dengan minimal 3 tahun pengalaman di bidang community development, civic engagement, atau isu sosial. Harus memiliki proyek atau inisiatif yang akan dikembangkan setelah fellowship."
+      },
+      {
+        question: "Berapa lama proses seleksi CSP?",
+        answer: "Proses seleksi sekitar 6-8 bulan dari pembukaan aplikasi hingga pengumuman. Ada tahap aplikasi online, interview, dan final selection oleh IREX dan U.S. Department of State."
+      },
+      {
+        question: "Apakah harus kembali ke Indonesia setelah fellowship?",
+        answer: "Ya, CSP mengharuskan fellows kembali ke negara asal untuk mengimplementasikan proyek dan berbagi ilmu yang didapat. Ini adalah inti dari program - membawa dampak positif ke komunitas Anda."
+      }
+    ],
+
+    announcements: [
+      {
+        date: "14 Januari 2025",
+        title: "Pembukaan Aplikasi CSP 2026",
+        content: "Aplikasi Community Solutions Program 2026 dibuka Maret 2025! Persiapkan proposal proyek Anda dari sekarang. Join webinar persiapan untuk course members!"
+      },
+      {
+        date: "10 Januari 2025",
+        title: "Alumni Sharing Session",
+        content: "Dengarkan pengalaman langsung dari CSP alumni Indonesia dalam virtual sharing session. Registrasi dibuka khusus untuk peserta kursus!"
+      }
+    ],
+
+    reviews: [
+      {
+        name: "Ratna Dewi",
+        rating: 5,
+        date: "12 Januari 2025",
+        comment: "Alhamdulillah lolos CSP 2024! Kursus ini sangat membantu terutama untuk menyusun proposal proyek dan persiapan interview. Terima kasih Dinar!"
+      },
+      {
+        name: "Bagus Prasetyo",
+        rating: 5,
+        date: "10 Januari 2025",
+        comment: "Konten sangat praktikal dan based on real experience. Saya jadi paham exactly apa yang dicari oleh selection committee. Highly recommended!"
+      },
+      {
+        name: "Sri Wahyuni",
+        rating: 4,
+        date: "8 Januari 2025",
+        comment: "Bagus! Insight tentang kehidupan sebagai fellow dan networking tips sangat berguna. Semoga tahun depan bisa lolos!"
+      }
+    ],
+
+    courseContent: [
+      {
+        id: "01",
+        title: "Pengenalan Community Solutions Program",
+        duration: "40 menit",
+        lessons: [
+          { title: "Selamat Datang di Kursus", duration: "5 menit", completed: true },
+          { title: "Apa itu Community Solutions Program?", duration: "12 menit" },
+          { title: "Manfaat dan Kesempatan CSP", duration: "13 menit" },
+          { title: "Timeline dan Proses Seleksi", duration: "10 menit" }
+        ]
+      },
+      {
+        id: "02",
+        title: "Eligibility dan Persiapan",
+        duration: "50 menit",
+        lessons: [
+          { title: "Siapa yang Bisa Apply?", duration: "10 menit" },
+          { title: "Track dan Fokus Area CSP", duration: "15 menit" },
+          { title: "Menentukan Isu dan Proyek", duration: "15 menit" },
+          { title: "Persiapan Dokumen", duration: "10 menit" }
+        ]
+      },
+      {
+        id: "03",
+        title: "Menulis Aplikasi yang Kuat",
+        duration: "1 jam 30 menit",
+        lessons: [
+          { title: "Overview Aplikasi Online", duration: "10 menit" },
+          { title: "Menulis Personal Statement", duration: "25 menit" },
+          { title: "Menyusun Proposal Proyek", duration: "30 menit" },
+          { title: "Tips Recommendation Letters", duration: "15 menit" },
+          { title: "Common Mistakes to Avoid", duration: "10 menit" }
+        ]
+      },
+      {
+        id: "04",
+        title: "Persiapan Interview",
+        duration: "1 jam",
+        lessons: [
+          { title: "Format Interview CSP", duration: "12 menit" },
+          { title: "Pertanyaan yang Sering Ditanyakan", duration: "20 menit" },
+          { title: "Cara Menjawab dengan Percaya Diri", duration: "18 menit" },
+          { title: "Mock Interview Practice", duration: "10 menit" }
+        ]
+      },
+      {
+        id: "05",
+        title: "Pengalaman Fellowship di Amerika",
+        duration: "1 jam 15 menit",
+        lessons: [
+          { title: "Pre-Departure dan J1 Visa", duration: "15 menit" },
+          { title: "Orientation dan Training", duration: "15 menit" },
+          { title: "Bekerja di NGO Amerika", duration: "20 menit" },
+          { title: "Networking dengan Fellows Lain", duration: "15 menit" },
+          { title: "Cultural Exchange dan Travel", duration: "10 menit" }
+        ]
+      },
+      {
+        id: "06",
+        title: "Pasca-Fellowship dan Alumni Network",
+        duration: "45 menit",
+        lessons: [
+          { title: "Implementasi Proyek di Indonesia", duration: "15 menit" },
+          { title: "Alumni Grants dan Opportunities", duration: "12 menit" },
+          { title: "Bergabung dengan Alumni Network", duration: "10 menit" },
+          { title: "Continuing Your Impact", duration: "8 menit" }
         ]
       }
     ]
