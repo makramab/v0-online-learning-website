@@ -18,6 +18,14 @@ interface CourseCardProps {
   isOwned?: boolean
 }
 
+// Max characters for tag display (based on "Private University" = 18 chars)
+const MAX_TAG_LENGTH = 18
+
+function truncateTag(tag: string): string {
+  if (tag.length <= MAX_TAG_LENGTH) return tag
+  return tag.slice(0, MAX_TAG_LENGTH).trim() + "..."
+}
+
 export function CourseCard({
   title,
   description,
@@ -68,8 +76,12 @@ export function CourseCard({
             tags.length > 0 && (
               <div className="absolute top-3 left-3 flex gap-2">
                 {tags.map((tag) => (
-                  <Badge key={tag} className="bg-primary text-primary-foreground font-semibold text-xs">
-                    {tag}
+                  <Badge
+                    key={tag}
+                    className="bg-primary text-primary-foreground font-semibold text-xs"
+                    title={tag.length > MAX_TAG_LENGTH ? tag : undefined}
+                  >
+                    {truncateTag(tag)}
                   </Badge>
                 ))}
               </div>
@@ -80,19 +92,19 @@ export function CourseCard({
         <h3 className="font-bold text-lg line-clamp-2 leading-snug">{title}</h3>
         <p className="text-sm text-muted-foreground line-clamp-2">{description}</p>
         <div className="text-sm text-muted-foreground">Oleh {instructor}</div>
-        <div className="flex items-center gap-4 text-sm text-muted-foreground">
+        <div className="flex items-center gap-3 text-sm text-muted-foreground">
           <div className="flex items-center gap-1">
             <Clock className="w-4 h-4" />
             <span>{duration}</span>
           </div>
-          <Badge variant="outline" className="font-normal">
-            {level}
-          </Badge>
           {rating && (
-            <div className="flex items-center gap-1">
-              <Star className="w-4 h-4 fill-primary text-primary" />
-              <span>{rating}</span>
-            </div>
+            <>
+              <span className="text-muted-foreground/50">•</span>
+              <div className="flex items-center gap-1">
+                <Star className="w-4 h-4 fill-primary text-primary" />
+                <span>{rating}</span>
+              </div>
+            </>
           )}
         </div>
       </CardContent>

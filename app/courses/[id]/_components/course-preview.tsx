@@ -263,11 +263,12 @@ export function CoursePreview({ course, dbCourseId }: CoursePreviewProps) {
 
               {/* Course Info */}
               <div className="space-y-4">
-                <div className="flex items-center gap-2 text-sm">
-                  <Badge variant="outline" className="text-[#1c9af1] border-[#1c9af1]">
-                    {course.category}
-                  </Badge>
-                  <Badge variant="outline">{course.level}</Badge>
+                <div className="flex items-center gap-2 text-sm flex-wrap">
+                  {course.tags.map((tag) => (
+                    <Badge key={tag} className="bg-primary text-primary-foreground font-semibold text-xs">
+                      {tag}
+                    </Badge>
+                  ))}
                 </div>
 
                 <h1 className="text-3xl sm:text-4xl font-bold text-slate-900">

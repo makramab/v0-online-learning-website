@@ -35,9 +35,9 @@ const BUNDLE_CONFIG = {
   name: "Paket Semua Kursus",
   price: 249000,
   originalPrice: 999000,
-  description: "Akses semua 9 kursus premium dengan satu pembelian. Hemat lebih dari 50%!",
+  description: "Akses semua 10 kursus premium dengan satu pembelian. Hemat lebih dari 50%!",
   features: [
-    "Akses selamanya ke semua 9 kursus",
+    "Akses selama 12 bulan ke semua 10 kursus",
     "Total 40+ jam konten video",
     "Sertifikat untuk setiap kursus",
     "Akses komunitas eksklusif",

@@ -222,7 +222,13 @@ export function CoursePlayerWithProgress({ course, localCourseId }: CoursePlayer
             <div className="flex items-start justify-between gap-4">
               <div className="space-y-2 flex-1 min-w-0">
                 <h1 className="text-2xl lg:text-4xl font-bold text-balance">{course.title}</h1>
-                <Badge variant="outline">{course.category}</Badge>
+                <div className="flex items-center gap-2 flex-wrap">
+                  {course.tags.map((tag) => (
+                    <Badge key={tag} className="bg-primary text-primary-foreground font-semibold text-xs">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
               </div>
               <Button variant="ghost" size="icon" className="flex-shrink-0">
                 <Share2 className="w-5 h-5" />
